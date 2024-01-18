@@ -30,7 +30,6 @@ def window():
 
 # process
 
-# backend
 def solver(sortedos, game_path):
     numeros_sorteados = sortedos.split()
 
