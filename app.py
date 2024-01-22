@@ -181,7 +181,7 @@ while True:
 
     elif event == 'Help':
         mensagem = 'certifique-se de que os jogos da loteria contidos no aquivo estejam separados por espaço e tenha um "." no fim de cada linha'
-        sg.popup(mensagem, image='question-sign-circles_41943.png')
+        sg.popup(mensagem)
 
 
 window.close()
