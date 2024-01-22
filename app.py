@@ -2,7 +2,6 @@ import PySimpleGUI as sg
 from loteria_caixa import *
 
 
-
 loterias = ['MegaSena', 'LotoFacil', 'Quina', 'LotoMania', 'TimeMania', 'DuplaSena', 'Federal', 'Loteca', 'DiadeSorte', 'SuperSet']    
 
 
@@ -12,10 +11,12 @@ def window():
     sg.theme('kayak')
     sg.TRANSPARENT_BUTTON = (sg.theme_background_color(), sg.theme_background_color())
 
-    cel_0 = [[sg.Text('Loteria:', font='serif 12'), sg.Combo(loterias,size=19, key='-LOTERIA-',
-                                                              readonly=True, enable_events=True),
-               sg.Text('Nº do concurso:', font='serif 12'), sg.In(font='arial 11', key='-CONCURSO-', 
-                                                              size=4, enable_events=True)]]
+    cel_0 = [
+                [sg.Text('Nº do concurso:', font='serif 12'), sg.In(font='arial 11', key='-CONCURSO-', 
+                                                              size=4, enable_events=True),
+                sg.Text('Loteria:', font='serif 12'), sg.Combo(loterias,size=19, key='-LOTERIA-',
+                                                              readonly=True, enable_events=True),]
+            ]
 
     cel_1 = [[sg.Text('Resultado do sorteio', text_color='purple', 
                         font='serif 12')],
@@ -31,7 +32,8 @@ def window():
     
     coluna2 = [[sg.B('Help', button_color=sg.TRANSPARENT_BUTTON, image_size=(15, 15), image_filename='question-sign-circles_41943.png', image_subsample=2, border_width=0)]]
     
-    layout = [[sg.Col(coluna1, vertical_alignment='center', element_justification='center'),
+    layout = [[],
+              [sg.Col(coluna1, vertical_alignment='center', element_justification='center'),
                sg.Col(coluna2, vertical_alignment='top')]]
     return sg.Window("Contador da Loteria!", layout, size=(510, 280),finalize=True)
 
@@ -142,9 +144,10 @@ def solver(game_path):
 
             jogo = j.split()
             numeros_acertados = [numero for numero in jogo if numero in sorteados]
-            result += f"numero de acertos do jogo {c}: {len(numeros_acertados)} \n"
+            result += f"numero de acertos do jogo {c}: {len(numeros_acertados):-2} \n"
             c += 1
-    
+
+        print(numeros_acertados)
     return result
 
 
