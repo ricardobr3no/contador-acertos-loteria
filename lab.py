@@ -1,9 +1,13 @@
-import loteria_caixa
+from loteria_caixa import MegaSena
 
-['MegaSena', 'LotoFacil', 'Quina', 'LotoMania', 'TimeMania', 'DuplaSena', 'Federal', 'Loteca', 'DiadeSorte', 'SuperSet'] 
+loterias = ('MegaSena', 'LotoFacil', 'Quina', 'LotoMania', 'TimeMania', 'DuplaSena', 'Federal', 'Loteca', 'DiadeSorte', 'SuperSet') 
 
-Resultado = loteria_caixa.LotoFacil().listaDezenas
-print(Resultado.split())
+n = 3005
 
+for loteria in loterias:
+    try:
+        a = vars()[f'{loteria}({n})']
+        print(a)
+    except:
+        print('deu ruim')
 
-        
