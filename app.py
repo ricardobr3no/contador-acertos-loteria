@@ -19,7 +19,7 @@ def window():
 
     cel_1 = [[sg.Text('Resultado do sorteio', text_color='purple', 
                         font='serif 12')],
-             [sg.Multiline('', key='-GABARITO-', text_color='blue',font='arial 12',size=(40, 2))],]
+             [sg.Multiline('', key='-GABARITO-', text_color='blue',font='arial 12',size=(40, 2), no_scrollbar=True)],]
     
     cel_2 = [[sg.Text('Aquivo com as apostas', font='serif 12')],
              [sg.In(key='-GAME-', text_color='blue', font='arial 11',size=41), sg.FileBrowse(size=5)],]
